@@ -21,7 +21,8 @@
     发生异常时回调
       
 ##添加到项目
-[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
+latest-version:[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
+
 Step 1. Add the JitPack repository to your build file
 
 **gradle**
@@ -60,19 +61,6 @@ compile 'com.github.SilenceDut:AsyncTaskScheduler:{latest-version}'
 	</dependency>
 ```
 ##使用
-Add it in your root build.gradle at the end of repositories:
-
-	allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
-	}
-Step 2. Add the dependency
-
-	dependencies {
-	        compile 'com.github.SilenceDut:AsyncTaskScheduler:v0.5.0'
-	}
 1. 单个任务——是在单个线程里执行，不需要线程池。
 
         SingleAsyncTask singleTask = new SingleAsyncTask<Void,String>() {   
