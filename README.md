@@ -1,4 +1,5 @@
 #AsyncTaskScheduler
+[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
 ##背景
 [详细解读AsyncTask的黑暗面以及一种替代方案](http://www.jianshu.com/p/d83fd0e8a062)
 ##特点
@@ -18,9 +19,60 @@
 - onExecuteCancelled
 - onExecuteFailed
     发生异常时回调
-    
-##使用
+      
+##添加到项目
+[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
+Step 1. Add the JitPack repository to your build file
 
+**gradle**
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+**maven**
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+Step 2. Add the dependency
+
+**gradle**
+
+```groovy
+compile 'com.github.SilenceDut:AsyncTaskScheduler:{latest-version}'
+```
+**maven**
+
+```xml
+<dependency>
+	    <groupId>com.github.SilenceDut</groupId>
+	    <artifactId>AsyncTaskScheduler</artifactId>
+	    <version>{latest-version}</version>
+	</dependency>
+```
+##使用
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        compile 'com.github.SilenceDut:AsyncTaskScheduler:v0.5.0'
+	}
 1. 单个任务——是在单个线程里执行，不需要线程池。
 
         SingleAsyncTask singleTask = new SingleAsyncTask<Void,String>() {   
@@ -70,3 +122,4 @@
         
         //取消通过AsyncTaskScheduler任务
         mAsyncTaskScheduler.cancelAllTasks(true);
+        
