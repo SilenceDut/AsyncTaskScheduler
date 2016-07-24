@@ -21,7 +21,7 @@
     发生异常时回调
       
 ##添加到项目
-latest-version:[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
+**latest-version**:[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
 
 Step 1. Add the JitPack repository to your build file
 
@@ -55,10 +55,10 @@ compile 'com.github.SilenceDut:AsyncTaskScheduler:{latest-version}'
 
 ```xml
 <dependency>
-	    <groupId>com.github.SilenceDut</groupId>
-	    <artifactId>AsyncTaskScheduler</artifactId>
-	    <version>{latest-version}</version>
-	</dependency>
+    <groupId>com.github.SilenceDut</groupId>
+    <artifactId>AsyncTaskScheduler</artifactId>
+    <version>{latest-version}</version>
+</dependency>
 ```
 ##使用
 1. 单个任务——是在单个线程里执行，不需要线程池。
