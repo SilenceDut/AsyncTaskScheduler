@@ -90,7 +90,7 @@ public abstract class SingleAsyncTask<Progress,Result>  {
     protected abstract Result doInBackground();
 
     @MainThread
-    protected void onProgressUpdate(Progress  values) {
+    protected void onProgressUpdate(Progress values) {
     }
 
     @MainThread
@@ -124,7 +124,6 @@ public abstract class SingleAsyncTask<Progress,Result>  {
             onExecuteSucceed(result);
         }
     }
-
 
     public final boolean cancel(boolean mayInterruptIfRunning) {
         mIsCancelled.set(true);
