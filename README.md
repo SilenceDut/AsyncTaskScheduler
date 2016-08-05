@@ -1,27 +1,27 @@
 #AsyncTaskScheduler
 [![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
-##背景
+##Background
 [详细解读AsyncTask的黑暗面以及一种替代方案](http://www.jianshu.com/p/d83fd0e8a062)
-##特点
-- 默认多个任务并行处理。
-- 执行单个任务无需使用线程池。
-- 支持自定义线程池。
-- 支持错误处理。
-- 多个任务的管理管理方便。
-- 支持任何线程处使用，结果都会在UI线程处理。
+##Characters
+- execute tasks in parallel as default, rather than processing them sequentially
+- execute single task use a thread rather than an executor 
+- you can set a default executor to execute tasks
+- a callback for task error
+- manage multiple  tasks easily
+- you can you it on any thread ,anf it will have a callback on main thread。
 
-##方法介绍
-很多方法都是和AsyncTask类似。
+##Methods Introduction
+methods like AsyncTask ,use easily
 
-- doInBackground
-- onProgressUpdate
-- onExecuteSucceed
-- onExecuteCancelled
-- onExecuteFailed
-    发生异常时回调
+- doInBackground : background thread
+- onProgressUpdate : main thread
+- onExecuteSucceed : main thread
+- onExecuteCancelled : main thread
+- onExecuteFailed : main thread,when unexpected happened
       
-##添加到项目
-**latest-version**:[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
+##Add to project
+**latest-version**:
+[![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
 
 Step 1. Add the JitPack repository to your build file
 
@@ -60,7 +60,7 @@ compile 'com.github.SilenceDut:AsyncTaskScheduler:{latest-version}'
     <version>{latest-version}</version>
 </dependency>
 ```
-##使用
+##How to use
 **Single background task ,use a single thread rather than an Executor, save resource**
 
 ```java
