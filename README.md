@@ -112,7 +112,7 @@ Executor defaultPoolExecutor = ...
 AsyncTaskScheduler mAsyncTaskScheduler = new AsyncTaskScheduler(Executor defaultPoolExecutor);
 ```
 
-** make sure  cancel task to avoid memory leak**
+**make sure  cancel task to avoid memory leak**
 
 ```java
 //取消通过executeSingle执行的任务
