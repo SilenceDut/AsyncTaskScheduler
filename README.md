@@ -61,7 +61,7 @@ compile 'com.github.SilenceDut:AsyncTaskScheduler:{latest-version}'
 </dependency>
 ```
 ##使用
-1. 单个任务——是在单个线程里执行，不需要线程池。
+单个任务——是在单个线程里执行，不需要线程池。
 ```java
 SingleAsyncTask singleTask = new SingleAsyncTask<Void,String>() {   
    @Override    
@@ -83,7 +83,7 @@ singleTask.executeSingle();
 //取消通过executeSingle执行的任务
 mSingleAsyncTask.cancel(true);
 ```
-2. 多个任务
+多个任务
 ```java
 //多个任务新建一个任务调度器
 AsyncTaskScheduler mAsyncTaskScheduler = new AsyncTaskScheduler();
@@ -100,13 +100,13 @@ mAsyncTaskScheduler.execute(singleTask1)
  //取消通过AsyncTaskScheduler任务
 mAsyncTaskScheduler.cancelAllTasks(true);
 ```
-3. 设置默认的线程池
+设置默认的线程池
 ```java
 //设置默认的线程池
 Executor defaultPoolExecutor = ...
 AsyncTaskScheduler mAsyncTaskScheduler = new AsyncTaskScheduler(Executor defaultPoolExecutor);
 ```
-4. 确保正确的取消任务以防止避免内存泄露或其他问题
+确保正确的取消任务以防止避免内存泄露或其他问题
 ```java
 //取消通过executeSingle执行的任务
 mSingleAsyncTask.cancel(true);
