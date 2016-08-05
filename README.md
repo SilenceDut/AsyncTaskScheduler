@@ -62,55 +62,58 @@ compile 'com.github.SilenceDut:AsyncTaskScheduler:{latest-version}'
 ```
 ##使用
 1. 单个任务——是在单个线程里执行，不需要线程池。
+```java
+SingleAsyncTask singleTask = new SingleAsyncTask<Void,String>() {   
+   @Override    
+   public String doInBackground() {   
+       return null;   
+   }
+   @Override
+   public void onExecuteSucceed(String result) {      
+       super.onExecuteSucceed(result);      
+   }
+   @Override
+   public void onExecuteFailed(Exception exception) {      
+       super.onExecuteFailed(exception);    
+       Log.i(TAG,"onExecuteCancelled:"+exception.getMessage()+Thread.currentThread());
+   }
+};
+singleTask.executeSingle();
 
-        SingleAsyncTask singleTask = new SingleAsyncTask<Void,String>() {   
-           @Override    
-           public String doInBackground() {   
-               return null;   
-           }
-           @Override
-           public void onExecuteSucceed(String result) {      
-               super.onExecuteSucceed(result);      
-           }
-           @Override
-           public void onExecuteFailed(Exception exception) {      
-               super.onExecuteFailed(exception);    
-               Log.i(TAG,"onExecuteCancelled:"+exception.getMessage()+Thread.currentThread());
-           }
-        };
-        singleTask.executeSingle();
-
-        //取消通过executeSingle执行的任务
-        mSingleAsyncTask.cancel(true);
+//取消通过executeSingle执行的任务
+mSingleAsyncTask.cancel(true);
+```
 2. 多个任务
+```java
+//多个任务新建一个任务调度器
+AsyncTaskScheduler mAsyncTaskScheduler = new AsyncTaskScheduler();
 
-        //多个任务新建一个任务调度器
-        AsyncTaskScheduler mAsyncTaskScheduler = new AsyncTaskScheduler();
-        
-        SingleAsyncTask singleTask1 = new  SingleTask() { ... }；
-        SingleAsyncTask singleTask2 = new  SingleTask() { ... }；
-        SingleAsyncTask singleTask3 = new  SingleTask() { ... }；
-        ...
-        
-        //并行执行多个任务
-        mAsyncTaskScheduler.execute(singleTask1)
-        .execute(singleTask2).execute(singleTask3).
-    
-         //取消通过AsyncTaskScheduler任务
-        mAsyncTaskScheduler.cancelAllTasks(true);
+SingleAsyncTask singleTask1 = new  SingleTask() { ... }；
+SingleAsyncTask singleTask2 = new  SingleTask() { ... }；
+SingleAsyncTask singleTask3 = new  SingleTask() { ... }；
+...
+
+//并行执行多个任务
+mAsyncTaskScheduler.execute(singleTask1)
+.execute(singleTask2).execute(singleTask3).
+
+ //取消通过AsyncTaskScheduler任务
+mAsyncTaskScheduler.cancelAllTasks(true);
+```
 3. 设置默认的线程池
-
-        //设置默认的线程池
-        Executor defaultPoolExecutor = ...
-        AsyncTaskScheduler mAsyncTaskScheduler = new AsyncTaskScheduler(Executor defaultPoolExecutor);
+```java
+//设置默认的线程池
+Executor defaultPoolExecutor = ...
+AsyncTaskScheduler mAsyncTaskScheduler = new AsyncTaskScheduler(Executor defaultPoolExecutor);
+```
 4. 确保正确的取消任务以防止避免内存泄露或其他问题
+```java
+//取消通过executeSingle执行的任务
+mSingleAsyncTask.cancel(true);
 
-        //取消通过executeSingle执行的任务
-        mSingleAsyncTask.cancel(true);
-        
-        //取消通过AsyncTaskScheduler任务
-        mAsyncTaskScheduler.cancelAllTasks(true);
-             
+//取消通过AsyncTaskScheduler任务
+mAsyncTaskScheduler.cancelAllTasks(true);
+```      
 License
 -------
 
