@@ -1,7 +1,7 @@
 #AsyncTaskScheduler
 [![](https://jitpack.io/v/SilenceDut/AsyncTaskScheduler.svg)](https://jitpack.io/#SilenceDut/AsyncTaskScheduler)
 ##Background
-[详细解读AsyncTask的黑暗面以及一种替代方案](http://www.jianshu.com/p/d83fd0e8a062)
+[详细解读AsyncTask的黑暗面以及一种替代方案](http://silencedut.coding.me/2016/07/08/%E5%9F%BA%E4%BA%8E%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84AsyncTask%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%E5%8F%8AAsyncTask%E7%9A%84%E9%BB%91%E6%9A%97%E9%9D%A2/)
 ##Characters
 - execute tasks in parallel as default, rather than processing them sequentially
 - execute single task use a thread rather than an executor 
